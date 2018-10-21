@@ -1,0 +1,13 @@
+Random 5 sentences selected:
+
+['I fiddled with them and they got better.', 'I was looking for something that would help me hold on to my slim, light, and delicate iPhone 5 without adding to much bulk.', 'The original was for my Kindle Fire, and the second was for a Samsung Galaxy S3.', "Can't tell it apart from the cable my phone originally came with.", 'Venue Pro is very much businesslike, precisely the type of mobile phone I want.']
+
+
+Sentences into tokens:
+
+['I', 'fiddled', 'with', 'them', 'and', 'they', 'got', 'better', '.', 'I', 'was', 'looking', 'for', 'something', 'that', 'would', 'help', 'me', 'hold', 'on', 'to', 'my', 'slim', ',', 'light', ',', 'and', 'delicate', 'iPhone', '5', 'without', 'adding', 'to', 'much', 'bulk', '.', 'The', 'original', 'was', 'for', 'my', 'Kindle', 'Fire', ',', 'and', 'the', 'second', 'was', 'for', 'a', 'Samsung', 'Galaxy', 'S3', '.', 'Ca', "n't", 'tell', 'it', 'apart', 'from', 'the', 'cable', 'my', 'phone', 'originally', 'came', 'with', '.', 'Venue', 'Pro', 'is', 'very', 'much', 'businesslike', ',', 'precisely', 'the', 'type', 'of', 'mobile', 'phone', 'I', 'want', '.']
+
+
+POS Tagging on random 5 sentences:
+
+[('I', 'PRP'), ('fiddled', 'VBD'), ('with', 'IN'), ('them', 'PRP'), ('and', 'CC'), ('they', 'PRP'), ('got', 'VBD'), ('better', 'RBR'), ('.', '.'), ('I', 'PRP'), ('was', 'VBD'), ('looking', 'VBG'), ('for', 'IN'), ('something', 'NN'), ('that', 'WDT'), ('would', 'MD'), ('help', 'VB'), ('me', 'PRP'), ('hold', 'VB'), ('on', 'IN'), ('to', 'TO'), ('my', 'PRP$'), ('slim', 'NN'), (',', ','), ('light', 'NN'), (',', ','), ('and', 'CC'), ('delicate', 'VB'), ('iPhone', 'NN'), ('5', 'CD'), ('without', 'IN'), ('adding', 'VBG'), ('to', 'TO'), ('much', 'JJ'), ('bulk', 'NN'), ('.', '.'), ('The', 'DT'), ('original', 'JJ'), ('was', 'VBD'), ('for', 'IN'), ('my', 'PRP$'), ('Kindle', 'NNP'), ('Fire', 'NNP'), (',', ','), ('and', 'CC'), ('the', 'DT'), ('second', 'NN'), ('was', 'VBD'), ('for', 'IN'), ('a', 'DT'), ('Samsung', 'NNP'), ('Galaxy', 'NNP'), ('S3', 'NNP'), ('.', '.'), ('Ca', 'NNP'), ("n't", 'RB'), ('tell', 'VB'), ('it', 'PRP'), ('apart', 'RB'), ('from', 'IN'), ('the', 'DT'), ('cable', 'NN'), ('my', 'PRP$'), ('phone', 'NN'), ('originally', 'RB'), ('came', 'VBD'), ('with', 'IN'), ('.', '.'), ('Venue', 'NNP'), ('Pro', 'NNP'), ('is', 'VBZ'), ('very', 'RB'), ('much', 'JJ'), ('businesslike', 'NN'), (',', ','), ('precisely', 'RB'), ('the', 'DT'), ('type', 'NN'), ('of', 'IN'), ('mobile', 'JJ'), ('phone', 'NN'), ('I', 'PRP'), ('want', 'VBP'), ('.', '.')]
