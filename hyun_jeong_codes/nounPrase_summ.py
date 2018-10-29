@@ -4,9 +4,9 @@ import numpy as np
 import random
 import csv
 import collections
+import operator
 import matplotlib.pyplot as plt
 
-from nltk import Tree, RegexpParser, ne_chunk
 
 nltk.download('maxent_ne_chunker')
 
@@ -23,12 +23,13 @@ print('Sentence Segmentation\n')
 seg_df = tokens_df
 seg_list = []
 for index in seg_df.index:
-    sentence = seg_df['reviewText'][index]
+    sentence = seg_df['reviewText'][index].lower()
     sentence_list = nltk.tokenize.sent_tokenize(sentence)
     for sent in sentence_list:
         seg_list.append(sent)
 
 print('Sentence Segmentation Completed\n')
+
 
 print("noun phrase extraction")
 #just carry out noun phrase extraction
@@ -86,7 +87,7 @@ def sentenceSeg(df):
     seg_df = df
     seg_list = []
     for index in seg_df.index:
-        sentence = seg_df['reviewText'][index]
+        sentence = seg_df['reviewText'][index].lower()
         sentence_list = nltk.tokenize.sent_tokenize(sentence)
         for sent in sentence_list:
             seg_list.append(sent)
@@ -123,15 +124,22 @@ def npRepresentative(noun_phrases_list, full_list_count):
 
     for npKey in npCount.keys():
         if npKey in full_list_count.keys():
-            npCount[npKey] = npCount[npKey] // full_list_count[npKey]
+            npCount[npKey] = npCount[npKey] / full_list_count[npKey]
 
-    print('get top 10 most frequent phrases')
-    npCounter = collections.Counter(npCount)
-    for np, count in npCounter.most_common(10):
-        print(np, ": ", count)
-    top20_phrases = npCounter.most_common(10)
-    top20_phrases_df = pd.DataFrame(top20_phrases, columns=['Noun Phrases', 'Count'])
-    return top20_phrases_df
+    print('get top 10 phrases with highest probability')
+    #remove words that only appear once
+    npCount = {key:val for key, val in npCount.items() if val != 1.0}
+    probabilityDescending = sorted(npCount.items(), key=operator.itemgetter(1), reverse=True)
+
+    print(probabilityDescending)
+
+    top10_list = []
+    for i in range(0, 10):
+        print(probabilityDescending[i])
+        top10_list.append(probabilityDescending[i])
+
+    return top10_list
+
 
 seg1 = sentenceSeg(df1)
 seg2 = sentenceSeg(df2)
@@ -140,6 +148,8 @@ seg3 = sentenceSeg(df3)
 np1 = npExtract(seg1)
 np2 = npExtract(seg2)
 np3 = npExtract(seg3)
+
+print('representative ones')
 
 npr1 = npRepresentative(np1, npCount)
 npr2 = npRepresentative(np2, npCount)
@@ -152,7 +162,23 @@ print(npr2)
 print('third product------------------------------------------------------')
 print(npr3)
 
+with open('Popular_product_top10_np_1.csv', 'w') as f:
+    writer = csv.writer(f)
+    for i in npr1:
+        writer.writerow([i])
+
+with open('Popular_product_top10_np_2.csv', 'w') as f:
+    writer = csv.writer(f)
+    for i in npr2:
+        writer.writerow([i])
+
+with open('Popular_product_top10_np_3.csv', 'w') as f:
+    writer = csv.writer(f)
+    for i in npr3:
+        writer.writerow([i])
+
+'''
 npr1.to_csv('Popular_product_top10_np_1.csv', encoding='utf-8', index = False)
 npr2.to_csv('Popular_product_top10_np_2.csv', encoding='utf-8', index = False)
-npr2.to_csv('Popular_product_top10_np_2.csv', encoding='utf-8', index = False)
-##top 10 divided by np cound
+npr2.to_csv('Popular_product_top10_np_3.csv', encoding='utf-8', index = False)
+'''
