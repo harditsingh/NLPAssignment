@@ -5,6 +5,12 @@ import nltk
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
+nltk.download('punkt')
+nltk.download('vader_lexicon')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('brown')
 
 print('Reading file...\n')
 i = 1
