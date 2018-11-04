@@ -22,14 +22,12 @@ tokens_df4 = tokens_df.sample(n=1)
 tokens_df5 = tokens_df.sample(n=1)
 
 #save the seleccted reviews
-frames = [tokens_df1, tokens_df2, tokens_df3, tokens_df4, tokens_df5]
-frames_merged = pd.concat(frames)
-#frames.to_csv('Random_sample_5_np.csv', encoding='utf-8', index = False)
 
-with open('Random5_np5.csv', 'w') as f:
-    writer = csv.writer(f)
-    for i in frames_merged:
-        writer.writerow([i])
+tokens_df1.to_csv('sample1.csv', encoding='utf-8', index = False)
+tokens_df2.to_csv('sample2.csv', encoding='utf-8', index = False)
+tokens_df3.to_csv('sample3.csv', encoding='utf-8', index = False)
+tokens_df4.to_csv('sample4.csv', encoding='utf-8', index = False)
+tokens_df5.to_csv('sample5.csv', encoding='utf-8', index = False)
 
 
 print('Replacing NAN values with empty string\n')
