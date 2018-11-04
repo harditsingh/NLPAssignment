@@ -60,11 +60,11 @@ tokenCount = {}
 for token in s_list:
     t_lower = token.lower()
     if t_lower not in stopWords:
-        #if t_lower not in punct_list:
-        if t_lower not in tokenCount:
-            tokenCount[t_lower] = 1
-        else:
-            tokenCount[t_lower] += 1
+        if t_lower not in punct_list:
+            if t_lower not in tokenCount:
+                tokenCount[t_lower] = 1
+            else:
+                tokenCount[t_lower] += 1
 
 token_Counter = collections.Counter(tokenCount)
 for token, count in token_Counter.most_common(20):
@@ -72,5 +72,5 @@ for token, count in token_Counter.most_common(20):
 top20_tokens = token_Counter.most_common(20)
 top20_tokens_df = pd.DataFrame(top20_tokens, columns = ['Stemmed_Token', 'Count'])
 top20_tokens_df.plot.bar(x='Stemmed_Token',y='Count', color='steelblue')
-plt.savefig('Top20_tokens_af_Stem_remove_stopwords.png', bbox_inches='tight')
+plt.savefig('Top20_tokens_af_Stem_remove_sw_punctuation.png', bbox_inches='tight')
 
