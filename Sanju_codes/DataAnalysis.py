@@ -15,7 +15,7 @@ nltk.download('brown')
 print('Reading file...\n')
 i = 1
 reviewDict = []
-with open('C:/Users/Sanjusha/Desktop/Year 4 Sem1/CZ4045/NLPAssignment/NLPAssignment/Sanju_codes/CellPhoneReview.json') as f:
+with open('CellPhoneReview.json') as f:
     for line in f:
         test_dict = ast.literal_eval(line)
         reviewDict.append(test_dict)
