@@ -1,0 +1,10 @@
+pandas
+numpy
+scipy
+ast
+json
+matplotlib
+pyplot
+collections
+random
+nltk
