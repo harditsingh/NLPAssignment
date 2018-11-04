@@ -29,6 +29,8 @@ print('Dataframe CREATED...\n')
 review_res = review_df2
 review_res.columns = ['reviewerID','productID','overall','reviewTime','unixReviewTime','summary','reviewText']
 
+review_res.to_csv('processedData.csv', sep=',', encoding='utf-8')
+
 #Identify the top-10 products that attract the most number of reviews
 prod_freq = review_res
 prod_freq = prod_freq.groupby(['productID'])['unixReviewTime'].count()
