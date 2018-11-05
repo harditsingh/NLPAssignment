@@ -8,3 +8,4 @@ pyplot
 collections
 random
 nltk
+statsmodels
